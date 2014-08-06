@@ -9,6 +9,6 @@ public class GameEngine {
     }
 
     public Winner whoIsTheWinnerGiven(String board) {
-        return null;
+        return Winner.NOT_EXIST;
     }
 }

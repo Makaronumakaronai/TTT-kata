@@ -22,11 +22,20 @@ public class GameEngineShould {
     }
 
     @Test
-    public void should_find_X_as_winner_in_first_row() {
+    public void find_X_as_winner_in_first_row() {
         final String board = "xxx.ooo..";
 
         Winner winner = gameEngine().whoIsTheWinnerGiven(board);
 
         assertThat(winner, is(equalTo(Winner.X)));
+    }
+
+    @Test
+    public void find_O_as_winner_in_a_first_row() {
+        final String board = "ooo.xxxx.";
+
+        Winner winner = gameEngine().whoIsTheWinnerGiven(board);
+
+        assertThat(winner, is(equalTo(Winner.O)));
     }
 }

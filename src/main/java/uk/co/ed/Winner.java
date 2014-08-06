@@ -1,5 +1,5 @@
 package uk.co.ed;
 
 public enum Winner {
-    X, NOT_EXIST
+    X, O, NOT_EXIST
 }

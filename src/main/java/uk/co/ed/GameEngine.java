@@ -9,6 +9,10 @@ public class GameEngine {
     }
 
     public Winner whoIsTheWinnerGiven(String board) {
+        if(board.startsWith("xxx")) {
+            return Winner.X;
+        }
+
         return Winner.NOT_EXIST;
     }
 }

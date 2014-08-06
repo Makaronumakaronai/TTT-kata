@@ -20,4 +20,13 @@ public class GameEngineShould {
     private GameEngine gameEngine() {
         return GameEngine.instance();
     }
+
+    @Test
+    public void should_find_X_as_winner_in_first_row() {
+        final String board = "xxx.ooo..";
+
+        Winner winner = gameEngine().whoIsTheWinnerGiven(board);
+
+        assertThat(winner, is(equalTo(Winner.X)));
+    }
 }

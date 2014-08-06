@@ -12,6 +12,9 @@ public class GameEngine {
         if(board.startsWith("xxx")) {
             return Winner.X;
         }
+        if(board.startsWith("ooo")) {
+            return Winner.O;
+        }
 
         return Winner.NOT_EXIST;
     }

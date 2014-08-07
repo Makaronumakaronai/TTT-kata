@@ -58,6 +58,16 @@ public class GameEngine {
     }
 
     private Winner getWinnerGiven(String board, int secondRowStartIndex) {
-        return Winner.valueOf(String.valueOf(board.charAt(secondRowStartIndex)).toUpperCase());
+        final String winnerSymbol = String.valueOf(board.charAt(secondRowStartIndex)).toLowerCase();
+        if(board.charAt(secondRowStartIndex) == 'o') {
+            String newBoard = board.replace('o', '.');
+
+            Winner winner = whoIsTheWinnerGiven(newBoard);
+
+            if(!winner.equals(Winner.NOT_EXIST)) {
+                return winner;
+            }
+        }
+        return Winner.valueOf(winnerSymbol.toUpperCase());
     }
 }

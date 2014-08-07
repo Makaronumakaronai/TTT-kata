@@ -47,4 +47,13 @@ public class GameEngineShould {
 
         assertThat(winner, is(equalTo(Winner.X)));
     }
+
+    @Test
+    public void find_winner_in_third_row() {
+        final String board = "..xx.xooo";
+
+        Winner winner = gameEngine().whoIsTheWinnerGiven(board);
+
+        assertThat(winner, is(equalTo(Winner.X)));
+    }
 }

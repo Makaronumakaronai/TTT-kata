@@ -15,9 +15,12 @@ public class GameEngine {
         if(isThereAWinnerGivenStartOfARow(board, 3)) {
             return getWinnerGiven(board, 3);
         }
-
         if(isThereAWinnerGivenStartOfARow(board, 6)) {
             return getWinnerGiven(board, 6);
+        }
+        if(board.charAt(0) == board.charAt(3) && board.charAt(0) == board.charAt(6) &&
+                board.charAt(0) != '.') {
+            return getWinnerGiven(board, 0);
         }
 
         return Winner.NOT_EXIST;

@@ -18,16 +18,19 @@ public class GameEngine {
         if(isThereAWinnerGivenStartOfARow(board, 6)) {
             return getWinnerGiven(board, 6);
         }
-        if(board.charAt(0) == board.charAt(3) && board.charAt(0) == board.charAt(6) &&
-                board.charAt(0) != '.') {
+        if(isThereAWinnerInColumnGiven(board, 0)) {
             return getWinnerGiven(board, 0);
         }
-        if(board.charAt(1) == board.charAt(4) && board.charAt(1) == board.charAt(7) &&
-                board.charAt(1) != '.') {
+        if(isThereAWinnerInColumnGiven(board, 1)) {
             return getWinnerGiven(board, 1);
         }
 
         return Winner.NOT_EXIST;
+    }
+
+    private boolean isThereAWinnerInColumnGiven(String board, int columnIndex) {
+        return board.charAt(columnIndex) == board.charAt(columnIndex+3) && board.charAt(columnIndex) == board.charAt(columnIndex+6) &&
+                board.charAt(columnIndex) != '.';
     }
 
     private boolean isThereAWinnerGivenStartOfARow(String board, int rowStart) {

@@ -16,6 +16,10 @@ public class GameEngine {
             return getWinnerGiven(board, 3);
         }
 
+        if(isThereAWinnerGivenStartOfARow(board, 6)) {
+            return getWinnerGiven(board, 6);
+        }
+
         return Winner.NOT_EXIST;
     }
 

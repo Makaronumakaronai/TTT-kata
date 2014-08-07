@@ -54,6 +54,6 @@ public class GameEngineShould {
 
         Winner winner = gameEngine().whoIsTheWinnerGiven(board);
 
-        assertThat(winner, is(equalTo(Winner.X)));
+        assertThat(winner, is(equalTo(Winner.O)));
     }
 }

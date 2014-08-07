@@ -13,6 +13,10 @@ public class GameEngine {
                 board.charAt(0) != '.') {
             return Winner.valueOf(String.valueOf(board.charAt(0)).toUpperCase());
         }
+        if(board.charAt(3) == board.charAt(4) && board.charAt(3) == board.charAt(5) &&
+                board.charAt(0) != '.') {
+            return Winner.valueOf(String.valueOf(board.charAt(4)).toUpperCase());
+        }
 
         return Winner.NOT_EXIST;
     }

@@ -83,4 +83,13 @@ public class GameEngineShould {
 
         assertThat(winner, is(equalTo(Winner.X)));
     }
+
+    @Test
+    public void find_winner_diagonnaly_from_left() {
+        final String board = "x.oox.o.x";
+
+        Winner winner = gameEngine().whoIsTheWinnerGiven(board);
+
+        assertThat(winner, is(equalTo(Winner.X)));
+    }
 }

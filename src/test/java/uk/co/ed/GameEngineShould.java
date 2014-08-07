@@ -77,7 +77,7 @@ public class GameEngineShould {
 
     @Test
     public void find_winner_in_third_column() {
-        final String board = ".ox.ox.ox";
+        final String board = "..xoox.ox";
 
         Winner winner = gameEngine().whoIsTheWinnerGiven(board);
 

@@ -24,6 +24,9 @@ public class GameEngine {
         if(isThereAWinnerInColumnGiven(board, 1)) {
             return getWinnerGiven(board, 1);
         }
+        if(isThereAWinnerInColumnGiven(board, 2)) {
+            return getWinnerGiven(board, 2);
+        }
 
         return Winner.NOT_EXIST;
     }

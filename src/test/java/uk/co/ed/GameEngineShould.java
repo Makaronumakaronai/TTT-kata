@@ -8,106 +8,72 @@ import static org.hamcrest.core.IsEqual.equalTo;
 
 public class GameEngineShould {
 
-    @Test
-    public void find_a_no_winner_for_empty_board() {
-        final String board = ".........";
-
-        Winner winner = gameEngine().whoIsTheWinnerGiven(board);
-
-        assertThat(winner, is(equalTo(Winner.NOT_EXIST)));
-    }
-
     private GameEngine gameEngine() {
         return GameEngine.instance();
     }
 
     @Test
-    public void find_X_as_winner_in_first_row() {
-        final String board = "xxx.ooo..";
+    public void find_a_no_winner_for_empty_board() {
+        verifyThatForGivenBoardWinnerIs(".........", Winner.NOT_EXIST);
+    }
 
+    private void verifyThatForGivenBoardWinnerIs(String board, Winner notExist) {
         Winner winner = gameEngine().whoIsTheWinnerGiven(board);
+        assertThat(winner, is(equalTo(notExist)));
+    }
 
-        assertThat(winner, is(equalTo(Winner.X)));
+    @Test
+    public void find_X_as_winner_in_first_row() {
+        verifyThatForGivenBoardWinnerIs("xxx.ooo..", Winner.X);
     }
 
     @Test
     public void find_O_as_winner_in_a_first_row() {
-        final String board = "ooo.xxxx.";
-
-        Winner winner = gameEngine().whoIsTheWinnerGiven(board);
-
-        assertThat(winner, is(equalTo(Winner.O)));
+        verifyThatForGivenBoardWinnerIs("ooo.xxxx.", Winner.O);
     }
 
     @Test
     public void find_winner_in_second_row() {
-        final String board = "oo.xxxo..";
-
-        Winner winner = gameEngine().whoIsTheWinnerGiven(board);
-
-        assertThat(winner, is(equalTo(Winner.X)));
+        verifyThatForGivenBoardWinnerIs("oo.xxxo..", Winner.X);
     }
 
     @Test
     public void find_winner_in_third_row() {
-        final String board = "..xx.xooo";
-
-        Winner winner = gameEngine().whoIsTheWinnerGiven(board);
-
-        assertThat(winner, is(equalTo(Winner.O)));
+        verifyThatForGivenBoardWinnerIs("..xx.xooo", Winner.O);
     }
 
     @Test
     public void find_winner_in_first_column() {
-        final String board = "x..xo.xoo";
-
-        Winner winner = gameEngine().whoIsTheWinnerGiven(board);
-
-        assertThat(winner, is(equalTo(Winner.X)));
+        verifyThatForGivenBoardWinnerIs("x..xo.xoo", Winner.X);
     }
 
     @Test
     public void find_winner_in_second_column() {
-        final String board = ".xo.xo.xo";
-
-        Winner winner = gameEngine().whoIsTheWinnerGiven(board);
-
-        assertThat(winner, is(equalTo(Winner.X)));
+        verifyThatForGivenBoardWinnerIs(".xo.xo.xo", Winner.X);
     }
 
     @Test
     public void find_winner_in_third_column() {
-        final String board = "..xoox.ox";
-
-        Winner winner = gameEngine().whoIsTheWinnerGiven(board);
-
-        assertThat(winner, is(equalTo(Winner.X)));
+        verifyThatForGivenBoardWinnerIs("..xoox.ox", Winner.X);
     }
 
     @Test
     public void find_winner_diagonally_from_left() {
-        final String board = "x.oox.o.x";
-
-        Winner winner = gameEngine().whoIsTheWinnerGiven(board);
-
-        assertThat(winner, is(equalTo(Winner.X)));
+        verifyThatForGivenBoardWinnerIs("x.oox.o.x", Winner.X);
     }
 
     @Test
     public void find_winner_diagonally_from_right() {
-        final String board = "o.xoxox..";
-
-        Winner winner = gameEngine().whoIsTheWinnerGiven(board);
-
-        assertThat(winner, is(equalTo(Winner.X)));
+        verifyThatForGivenBoardWinnerIs("o.xoxox..", Winner.X);
     }
 
     @Test
     public void x_should_be_picked_up_first_WHEN_x_winner_in_second_row_and_o_in_first() {
-        final String board = "oooxxx...";
+        verifyThatForGivenBoardWinnerIs("oooxxx...", Winner.X);
+    }
 
-        Winner winner = gameEngine().whoIsTheWinnerGiven(board);
-
-        assertThat(winner, is(equalTo(Winner.X)));
+    @Test
+    public void x_should_be_picked_up_first_WHEN_x_winner_in_last_column_and_o_in_first() {
+        verifyThatForGivenBoardWinnerIs("o.xo.xo.x", Winner.X);
     }
 }

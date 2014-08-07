@@ -22,6 +22,10 @@ public class GameEngine {
                 board.charAt(0) != '.') {
             return getWinnerGiven(board, 0);
         }
+        if(board.charAt(1) == board.charAt(4) && board.charAt(1) == board.charAt(7) &&
+                board.charAt(1) != '.') {
+            return getWinnerGiven(board, 1);
+        }
 
         return Winner.NOT_EXIST;
     }

@@ -101,4 +101,13 @@ public class GameEngineShould {
 
         assertThat(winner, is(equalTo(Winner.X)));
     }
+
+    @Test
+    public void x_should_be_picked_up_first_WHEN_x_winner_in_second_row_and_o_in_first() {
+        final String board = "oooxxx...";
+
+        Winner winner = gameEngine().whoIsTheWinnerGiven(board);
+
+        assertThat(winner, is(equalTo(Winner.X)));
+    }
 }

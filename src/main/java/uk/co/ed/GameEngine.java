@@ -30,12 +30,16 @@ public class GameEngine {
         if(isThereAWinnerDiagonallyFromLeft(board)) {
             return getWinnerGiven(board, 0);
         }
-        if(board.charAt(2) == board.charAt(4) && board.charAt(2) == board.charAt(6) &&
-                board.charAt(2) != '.') {
+        if(isThereAWinnerDiagonallyFromRight(board)) {
             return getWinnerGiven(board, 2);
         }
 
         return Winner.NOT_EXIST;
+    }
+
+    private boolean isThereAWinnerDiagonallyFromRight(String board) {
+        return board.charAt(2) == board.charAt(4) && board.charAt(2) == board.charAt(6) &&
+                board.charAt(2) != '.';
     }
 
     private boolean isThereAWinnerDiagonallyFromLeft(String board) {
